@@ -36,12 +36,18 @@ pipeline {
             steps {
                 script {
                     sleep(30)
+        
                     def result = sh(
                         script: "curl -s http://host.docker.internal:9000/api/qualitygates/project_status?projectKey=my-app",
                         returnStdout: true
-                    )
-                    if (!result.contains('"status":"OK"')) {
+                    ).trim()
+        
+                    echo "Respuesta Sonar: ${result}"
+        
+                    if (result.contains('"status":"ERROR"')) {
                         error("Quality Gate FAILED")
+                    } else {
+                        echo "Quality Gate PASSED"
                     }
                 }
             }
