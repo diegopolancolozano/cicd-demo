@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/diegopolancolozano/cicd-demo.git'
+                checkout scm
             }
         }
 
