@@ -15,7 +15,7 @@ pipeline {
 //////
         stage('Build') {
             steps {
-                sh 'echo "Tests deshabilitados por entorno Jenkins"'
+                sh 'mvn clean package -DskipTests -Dmaven.test.skip=true'
             }
         }
 
