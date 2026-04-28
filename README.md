@@ -48,7 +48,7 @@ GitHub Push
      +--> Trivy Security Scan
      |
      +--> Deploy Container
-
+```
 
 # Infraestructura Docker
 
