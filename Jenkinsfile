@@ -27,11 +27,14 @@ pipeline {
 
         stage('Static Analysis (SonarQube)') {
             steps {
-                sh '''
-                mvn sonar:sonar \
-                -Dsonar.projectKey=my-app \
-                -Dsonar.host.url=http://host.docker.internal:9000
-                '''
+                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                    sh '''
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=my-app \
+                    -Dsonar.host.url=http://host.docker.internal:9000 \
+                    -Dsonar.token=$SONAR_TOKEN
+                    '''
+                }
             }
         }
 
