@@ -35,7 +35,7 @@ pipeline {
         stage('Quality Gate') {
             steps {
                 script {
-                    sleep(15)
+                    sleep(30)
                     def result = sh(
                         script: "curl -s http://host.docker.internal:9000/api/qualitygates/project_status?projectKey=my-app",
                         returnStdout: true
