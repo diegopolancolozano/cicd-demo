@@ -48,3 +48,22 @@ GitHub Push
      +--> Trivy Security Scan
      |
      +--> Deploy Container
+
+
+# Infraestructura Docker
+
+Los siguientes contenedores fueron utilizados durante el desarrollo del pipeline:
+
+## Jenkins
+- Imagen: `jenkins/jenkins:lts`
+- Puerto: `8080`
+
+## SonarQube
+- Imagen: `sonarqube:community`
+- Puerto: `9000`
+
+## Aplicación
+- Base image: `eclipse-temurin:17-jdk-alpine`
+
+## Trivy
+- Imagen: `aquasec/trivy`
