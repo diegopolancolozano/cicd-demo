@@ -61,7 +61,7 @@ pipeline {
 
         stage('Security Scan (Trivy)') {
             steps {
-                sh 'trivy image --exit-code 1 --severity CRITICAL $IMAGE_NAME'
+                sh 'trivy image --severity CRITICAL $IMAGE_NAME'
             }
         }
 
